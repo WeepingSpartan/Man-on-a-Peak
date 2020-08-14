@@ -14,7 +14,7 @@ a=0
 for i in userList:
 	a+=int(i)# sum of all entries to find the number of columns of the matrix
 
-c = [ [ " " for i in range(a+10) ] for j in range(max+10) ] 
+c = [ [ "     " for i in range(a+100) ] for j in range(a*2) ] 
 
 
 temp1=max+2 # Arbitrary value to define the structure of the peak
@@ -31,7 +31,7 @@ for i in range (len(userList)):
 		for d in range(int(userList[i])):	
 			# If even index the slope is up
 			temp2+=1
-			c[temp1][temp2]='/'
+			c[temp1][temp2]='  /  '
 			temp1-=1	
 	else:
 		sum-=int(userList[i])
@@ -39,7 +39,7 @@ for i in range (len(userList)):
 			# If odd index slope is down
 			temp1+=1
 			temp2+=1
-			c[temp1][temp2]='\ '
+			c[temp1][temp2]='  \  '
 			#temp2+=1
 			#temp1+=1
 		
@@ -47,16 +47,15 @@ for i in range (len(userList)):
 		max=sum
 		xpeak_coord=temp1# Update peak value
 		ypeak_coord=temp2
-			
 
 #Design for man on the peak
-c[xpeak_coord][ypeak_coord]= "< >"
-c[xpeak_coord-1][ypeak_coord]= "/|\ "
-c[xpeak_coord-2][ypeak_coord]= " o "
+c[xpeak_coord][ypeak_coord]= "\t< > "
+c[xpeak_coord-1][ypeak_coord]= "\t/|\ "
+c[xpeak_coord-2][ypeak_coord]= "\t o  "
 
 # Print the final graph
-for i in range(max+3):
-	for j in range(a):
+for i in range(a*2):
+	for j in range(a+10):
 		print(c[i][j],end=" ")
 	print()
 
